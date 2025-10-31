@@ -583,25 +583,10 @@ function App() {
           )}
 
           <div className="mt-16 pt-12 border-t border-white/20">
-            <p className="text-purple-100 text-lg mb-6 font-semibold">Prefer to reach out directly?</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-white">
-              <a 
-                href="mailto:hello@mindora.ai" 
-                className="flex items-center space-x-3 hover:text-purple-200 transition-colors duration-200 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full"
-              >
-                <Mail className="w-5 h-5" />
-                <span className="font-medium">muhammedhuminhaj@gmail.com</span>
-              </a>
-              <a 
-                href="tel:+1234567890" 
-                className="flex items-center space-x-3 hover:text-purple-200 transition-colors duration-200 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full"
-              >
-                <Phone className="w-5 h-5" />
-                <span className="font-medium">+94 77 818 1851
-</span>
-              </a>
-            </div>
-          </div>
+          <p className="text-purple-100 text-lg font-medium">
+            We'll be in touch soon with more details about Mindora
+          </p>
+        </div>
         </div>
       </section>
 

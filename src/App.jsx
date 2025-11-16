@@ -3,7 +3,7 @@ import {
   Heart, Shield, Sparkles, Moon, Brain, ArrowRight, 
   Menu, X, CheckCircle, Mail, Phone, Zap, Users, 
   TrendingUp, Clock, Lock, Smile, Target, MessageCircle,
-  Star, Award, Activity
+  Star, Award, Activity, Linkedin, Twitter, Instagram, Facebook, Globe, MapPin
 } from 'lucide-react';
 
 function App() {
@@ -11,6 +11,25 @@ function App() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Contact Information from Business Card
+  const contactInfo = {
+    email: 'muhammedhuminhaj@gmail.com',
+    phone: '+94 77 818 1851',
+    website: 'www.mindorabot.ai',
+    address: 'Anderson Road, Dehiwala, Srilanka',
+    founder: {
+      name: 'Muhammedhu Minhaj',
+      title: 'Founder & Vision Lead',
+      photo: '/founder_profile.png',
+      bio: 'Passionate about making mental wellness accessible to everyone through innovative AI technology.'
+    },
+    social: {
+      linkedin: 'https://linkedin.com/company/mindora',
+      facebook: 'https://facebook.com/mindora',
+      instagram: 'https://instagram.com/mindora'
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,18 +66,21 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             
-            <div 
+           <div 
               className="flex items-center space-x-3 cursor-pointer group" 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              <div className="w-11 h-11 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                <Brain className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Mindora
-              </span>
+              <img 
+                src="/mindoralogo.png" 
+                alt="Mindora Logo" 
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+                onError={(e) => {
+                  console.log('Logo failed to load, trying alternative');
+                  e.target.onerror = null;
+                  e.target.src = '/mindoralogo .png';
+                }}
+              />
             </div>
-
             <div className="hidden md:flex items-center space-x-8">
               <button 
                 onClick={() => scrollToSection('features')} 
@@ -77,6 +99,12 @@ function App() {
                 className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
               >
                 Vision
+              </button>
+              <button 
+                onClick={() => scrollToSection('founder')} 
+                className="text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
+              >
+                Founder
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
@@ -115,6 +143,12 @@ function App() {
                 className="block w-full text-left py-3 px-4 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors duration-200"
               >
                 Vision
+              </button>
+              <button 
+                onClick={() => scrollToSection('founder')} 
+                className="block w-full text-left py-3 px-4 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors duration-200"
+              >
+                Founder
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
@@ -184,37 +218,43 @@ function App() {
           </div>
 
           {/* Chat Demo */}
-          <div className="mt-20 relative max-w-4xl mx-auto">
-            <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-2xl opacity-20"></div>
-            <div className="relative bg-white rounded-3xl shadow-2xl p-6 md:p-10 backdrop-blur-sm border border-gray-100">
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex-shrink-0 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-gray-600" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="bg-gray-100 rounded-2xl rounded-tl-sm p-5 shadow-sm">
-                      <p className="text-gray-800 leading-relaxed">I'm feeling really overwhelmed with work stress and can't seem to find balance...</p>
-                    </div>
-                    <span className="text-xs text-gray-400 ml-2 mt-1 block">Just now</span>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
-                    <Brain className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl rounded-tl-sm p-5 border border-purple-100 shadow-sm">
-                      <p className="text-gray-800 leading-relaxed mb-3">I hear you, and what you're experiencing is valid. Feeling overwhelmed is a natural response to stress. Let's work through this together.</p>
-                      <p className="text-gray-700 leading-relaxed">Would you like to try a quick 2-minute breathing exercise, or would you prefer to talk more about what's been weighing on you?</p>
-                    </div>
-                    <span className="text-xs text-gray-400 ml-2 mt-1 block">Just now</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+<div className="mt-20 relative max-w-4xl mx-auto">
+  <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-2xl opacity-20"></div>
+  <div className="relative bg-white rounded-3xl shadow-2xl p-6 md:p-10 backdrop-blur-sm border border-gray-100">
+    <div className="space-y-6">
+      {/* User Message */}
+      <div className="flex items-start space-x-4">
+        <div className="w-12 h-12 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex-shrink-0 flex items-center justify-center">
+          <Users className="w-6 h-6 text-gray-600" />
+        </div>
+        <div className="flex-1">
+          <div className="bg-gray-100 rounded-2xl rounded-tl-sm p-5 shadow-sm">
+            <p className="text-gray-800 leading-relaxed">I'm feeling really overwhelmed with work stress and can't seem to find balance...</p>
           </div>
+          <span className="text-xs text-gray-400 ml-2 mt-1 block">Just now</span>
+        </div>
+      </div>
+
+      {/* AI Response with Mindora Icon */}
+      <div className="flex items-start space-x-4">
+        <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden p-2">
+          <img 
+            src="/Mindora Icon Normal.png" 
+            alt="Mindora AI" 
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <div className="flex-1">
+          <div className="bg-white rounded-2xl rounded-tl-sm p-5 shadow-sm border border-gray-100">
+            <p className="text-gray-800 leading-relaxed">I hear you, and what you're experiencing is valid. Feeling overwhelmed is a natural response to stress. Let's work through this together.</p>
+            <p className="text-gray-800 leading-relaxed mt-4">Would you like to try a quick 2-minute breathing exercise, or would you prefer to talk more about what's been weighing on you?</p>
+          </div>
+          <span className="text-xs text-gray-400 ml-2 mt-1 block">Just now</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
       </section>
 
@@ -528,6 +568,119 @@ function App() {
         </div>
       </section>
 
+      {/* Founder Section */}
+      <section id="founder" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Meet Our Founder
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Visionary leader dedicated to transforming mental wellness through AI
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 rounded-3xl p-8 md:p-12 shadow-2xl border border-purple-100">
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+                <div className="flex-shrink-0">
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur opacity-75"></div>
+                    <img 
+                      src="/founder_profile.png" 
+                      alt={contactInfo.founder.name}
+                      className="relative w-48 h-48 md:w-56 md:h-56 rounded-3xl object-cover shadow-xl border-4 border-white"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="hidden relative w-48 h-48 md:w-56 md:h-56 rounded-3xl bg-gradient-to-br from-purple-600 to-pink-600 items-center justify-center shadow-xl border-4 border-white">
+                      <Users className="w-24 h-24 text-white" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                    {contactInfo.founder.name}
+                  </h3>
+                  <p className="text-xl text-purple-600 font-semibold mb-6">
+                    {contactInfo.founder.title}
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-8 text-lg">
+                    {contactInfo.founder.bio}
+                  </p>
+
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-center md:justify-start space-x-3 text-gray-700">
+                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                        <Mail className="w-5 h-5 text-purple-600" />
+                      </div>
+                      <a href={`mailto:${contactInfo.email}`} className="hover:text-purple-600 transition-colors duration-200 font-medium">
+                        {contactInfo.email}
+                      </a>
+                    </div>
+
+                    <div className="flex items-center justify-center md:justify-start space-x-3 text-gray-700">
+                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                        <Phone className="w-5 h-5 text-purple-600" />
+                      </div>
+                      <a href={`tel:${contactInfo.phone}`} className="hover:text-purple-600 transition-colors duration-200 font-medium">
+                        {contactInfo.phone}
+                      </a>
+                    </div>
+
+                    <div className="flex items-center justify-center md:justify-start space-x-3 text-gray-700">
+                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                        <Globe className="w-5 h-5 text-purple-600" />
+                      </div>
+                      <a href={`https://${contactInfo.website}`} target="_blank" rel="noopener noreferrer" className="hover:text-purple-600 transition-colors duration-200 font-medium">
+                        {contactInfo.website}
+                      </a>
+                    </div>
+
+                    <div className="flex items-center justify-center md:justify-start space-x-3 text-gray-700">
+                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                        <MapPin className="w-5 h-5 text-purple-600" />
+                      </div>
+                      <span className="font-medium">{contactInfo.address}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-center md:justify-start space-x-4 mt-8">
+                    <a 
+                      href={contactInfo.social.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-110"
+                    >
+                      <Linkedin className="w-6 h-6" />
+                    </a>
+                    <a 
+                      href={contactInfo.social.facebook} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-110"
+                    >
+                      <Facebook className="w-6 h-6" />
+                    </a>
+                    <a 
+                      href={contactInfo.social.instagram} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-110"
+                    >
+                      <Instagram className="w-6 h-6" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact/CTA */}
       <section id="contact" className="py-24 bg-gradient-to-br from-purple-600 via-pink-600 to-purple-700 relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10"></div>
@@ -583,10 +736,44 @@ function App() {
           )}
 
           <div className="mt-16 pt-12 border-t border-white/20">
-          <p className="text-purple-100 text-lg font-medium">
-            We'll be in touch soon with more details about Mindora
-          </p>
-        </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+              <div className="flex flex-col items-center space-y-3">
+                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                  <Phone className="w-7 h-7" />
+                </div>
+                <div>
+                  <p className="text-purple-100 text-sm font-medium mb-1">Call Us</p>
+                  <a href={`tel:${contactInfo.phone}`} className="text-base font-semibold hover:text-purple-200 transition-colors duration-200">
+                    {contactInfo.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center space-y-3">
+                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                  <Mail className="w-7 h-7" />
+                </div>
+                <div>
+                  <p className="text-purple-100 text-sm font-medium mb-1">Email Us</p>
+                  <a href={`mailto:${contactInfo.email}`} className="text-base font-semibold hover:text-purple-200 transition-colors duration-200 break-all">
+                    {contactInfo.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center space-y-3">
+                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                  <Globe className="w-7 h-7" />
+                </div>
+                <div>
+                  <p className="text-purple-100 text-sm font-medium mb-1">Visit Us</p>
+                  <a href={`https://${contactInfo.website}`} target="_blank" rel="noopener noreferrer" className="text-base font-semibold hover:text-purple-200 transition-colors duration-200">
+                    {contactInfo.website}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -594,46 +781,96 @@ function App() {
       <footer className="bg-gray-900 text-gray-400 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            {/* Logo and Description - Centered on mobile */}
+            {/* Logo and Description */}
             <div className="md:col-span-2 text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <Brain className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-2xl font-bold text-white">Mindora</span>
+               <img 
+                src="/mindoralogo.png" 
+                alt="Mindora Logo" 
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+                onError={(e) => {
+                  console.log('Logo failed to load, trying alternative');
+                  e.target.onerror = null;
+                  e.target.src = '/mindoralogo .png';
+                }}
+              />
               </div>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-md mx-auto md:mx-0">
                 Building the world's most accessible AI-powered mental wellness platform. Everyone deserves a safe space to heal.
               </p>
+              <div className="flex justify-center md:justify-start space-x-4">
+                <a 
+                  href={contactInfo.social.linkedin} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a 
+                  href={contactInfo.social.facebook} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a 
+                  href={contactInfo.social.instagram} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
             </div>
 
-            {/* Product Links - Centered on mobile */}
+            {/* Product Links */}
             <div className="text-center md:text-left">
               <h4 className="text-white font-semibold mb-4">Product</h4>
               <ul className="space-y-3">
                 <li><button onClick={() => scrollToSection('features')} className="hover:text-white transition-colors duration-200 text-gray-400">Features</button></li>
                 <li><button onClick={() => scrollToSection('how-it-works')} className="hover:text-white transition-colors duration-200 text-gray-400">How It Works</button></li>
                 <li><button onClick={() => scrollToSection('vision')} className="hover:text-white transition-colors duration-200 text-gray-400">Roadmap</button></li>
+                <li><button onClick={() => scrollToSection('founder')} className="hover:text-white transition-colors duration-200 text-gray-400">Founder</button></li>
               </ul>
             </div>
 
-            {/* Company Links - Centered on mobile */}
+            {/* Contact Links */}
             <div className="text-center md:text-left">
-              <h4 className="text-white font-semibold mb-4">Company</h4>
+              <h4 className="text-white font-semibold mb-4">Contact</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="hover:text-white transition-colors duration-200 text-gray-400">About Us</a></li>
-                <li><button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors duration-200 text-gray-400">Contact</button></li>
+                <li>
+                  <a href={`mailto:${contactInfo.email}`} className="hover:text-white transition-colors duration-200 text-gray-400 text-sm break-all">
+                    {contactInfo.email}
+                  </a>
+                </li>
+                <li>
+                  <a href={`tel:${contactInfo.phone}`} className="hover:text-white transition-colors duration-200 text-gray-400">
+                    {contactInfo.phone}
+                  </a>
+                </li>
+                <li>
+                  <a href={`https://${contactInfo.website}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200 text-gray-400">
+                    {contactInfo.website}
+                  </a>
+                </li>
+                <li>
+                  <p className="text-gray-400 text-sm">{contactInfo.address}</p>
+                </li>
               </ul>
             </div>
           </div>
 
-          {/* Bottom Bar - Centered on mobile */}
+          {/* Bottom Bar */}
           <div className="pt-8 border-t border-gray-800">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
               <p className="text-sm text-gray-400">&copy; 2025 Mindora. All rights reserved.</p>
               <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
                 <a href="#" className="hover:text-white transition-colors duration-200 text-gray-400">Privacy Policy</a>
                 <a href="#" className="hover:text-white transition-colors duration-200 text-gray-400">Terms of Service</a>
+                <button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors duration-200 text-gray-400">Contact</button>
               </div>
             </div>
           </div>

@@ -5,7 +5,7 @@ import {
   TrendingUp, Clock, Lock, Smile, Target, MessageCircle,
   Star, Award, Activity, Linkedin, Instagram, Facebook, Globe, MapPin
 } from 'lucide-react';
-import { FaTiktok } from 'react-icons/fa';
+import { FaTiktok, FaFacebookF, FaLinkedinIn, FaInstagramSquare  } from 'react-icons/fa';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -657,7 +657,7 @@ function App() {
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-110"
                     >
-                      <Linkedin className="w-6 h-6" />
+                      <FaLinkedinIn className="w-6 h-6" />
                     </a>
                     <a 
                       href={contactInfo.social.facebook} 
@@ -665,7 +665,7 @@ function App() {
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-110"
                     >
-                      <Facebook className="w-6 h-6" />
+                      <FaFacebookF className="w-6 h-6" />
                     </a>
                     <a 
                       href={contactInfo.social.instagram} 
@@ -673,7 +673,7 @@ function App() {
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-110"
                     >
-                      <Instagram className="w-6 h-6" />
+                      <FaInstagramSquare className="w-6 h-6" />
                     </a>
                     <a 
                       href={contactInfo.social.tiktok} 
@@ -815,7 +815,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <FaLinkedinIn className="w-5 h-5" />
                 </a>
                 <a 
                   href={contactInfo.social.facebook} 
@@ -823,7 +823,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <FaFacebookF className="w-5 h-5" />
                 </a>
                 <a 
                   href={contactInfo.social.instagram} 
@@ -831,7 +831,15 @@ function App() {
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <FaInstagramSquare className="w-5 h-5" />
+                </a>
+                <a 
+                  href={contactInfo.social.tiktok} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300"
+                >
+                  <FaTiktok className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -874,9 +882,24 @@ function App() {
           </div>
 
           {/* Bottom Bar */}
+         {/* Bottom Bar */}
           <div className="pt-8 border-t border-gray-800">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
-              <p className="text-sm text-gray-400">&copy; 2025 Mindora. All rights reserved.</p>
+              <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+                <p className="text-sm text-gray-400">&copy; 2025 Mindora. All rights reserved.</p>
+                <span className="hidden md:inline text-gray-600">•</span>
+                <p className="text-sm text-gray-400">
+                  Developed by{' '}
+                  <a 
+                    href="https://innentasolutions.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-purple-400 hover:text-purple-300 transition-colors duration-200 font-medium"
+                  >
+                    Innenta Solutions
+                  </a>
+                </p>
+              </div>
               <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
                 <a href="#" className="hover:text-white transition-colors duration-200 text-gray-400">Privacy Policy</a>
                 <a href="#" className="hover:text-white transition-colors duration-200 text-gray-400">Terms of Service</a>

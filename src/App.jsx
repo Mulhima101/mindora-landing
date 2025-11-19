@@ -3,8 +3,9 @@ import {
   Heart, Shield, Sparkles, Moon, Brain, ArrowRight, 
   Menu, X, CheckCircle, Mail, Phone, Zap, Users, 
   TrendingUp, Clock, Lock, Smile, Target, MessageCircle,
-  Star, Award, Activity, Linkedin, Instagram, Facebook,TikTok, Globe, MapPin
+  Star, Award, Activity, Linkedin, Instagram, Facebook, Globe, MapPin
 } from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -680,7 +681,7 @@ function App() {
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-110"
                     >
-                      <TikTok className="w-6 h-6" />
+                      <FaTiktok className="w-6 h-6" />
                     </a>
                   </div>
                 </div>

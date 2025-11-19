@@ -3,7 +3,7 @@ import {
   Heart, Shield, Sparkles, Moon, Brain, ArrowRight, 
   Menu, X, CheckCircle, Mail, Phone, Zap, Users, 
   TrendingUp, Clock, Lock, Smile, Target, MessageCircle,
-  Star, Award, Activity, Linkedin, Twitter, Instagram, Facebook, Globe, MapPin
+  Star, Award, Activity, Linkedin, Instagram, Facebook,TikTok, Globe, MapPin
 } from 'lucide-react';
 
 function App() {
@@ -25,9 +25,10 @@ function App() {
       bio: 'Passionate about making mental wellness accessible to everyone through innovative AI technology.'
     },
     social: {
-      linkedin: 'https://linkedin.com/company/mindora',
-      facebook: 'https://facebook.com/mindora',
-      instagram: 'https://instagram.com/mindora'
+      linkedin: 'https://www.linkedin.com/in/mindorabot-ai-711622396',
+      facebook: 'https://www.facebook.com/profile.php?id=61583339777297',
+      instagram: 'https://www.instagram.com/mindorabotai/',
+      tiktok : 'https://www.tiktok.com/@mindorabot_ai?is_from_webapp=1&sender_device=pc'
     }
   };
 
@@ -672,6 +673,14 @@ function App() {
                       className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-110"
                     >
                       <Instagram className="w-6 h-6" />
+                    </a>
+                    <a 
+                      href={contactInfo.social.tiktok} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-110"
+                    >
+                      <TikTok className="w-6 h-6" />
                     </a>
                   </div>
                 </div>
